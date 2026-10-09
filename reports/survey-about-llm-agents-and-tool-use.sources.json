@@ -1,0 +1,218 @@
+[
+  {
+    "n": 1,
+    "id": "2210.03629",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "date": "2023-03-10",
+    "source": "arxiv"
+  },
+  {
+    "n": 2,
+    "id": "2302.04761",
+    "url": "https://arxiv.org/abs/2302.04761",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "date": "2023-02-09",
+    "source": "arxiv"
+  },
+  {
+    "n": 3,
+    "id": "2305.15334",
+    "url": "https://arxiv.org/abs/2305.15334",
+    "title": "Gorilla: Large Language Model Connected with Massive APIs",
+    "date": "2023-05-24",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "2308.08155",
+    "url": "https://arxiv.org/abs/2308.08155",
+    "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+    "date": "2023-08-16",
+    "source": "arxiv"
+  },
+  {
+    "n": 5,
+    "id": "2308.00352",
+    "url": "https://arxiv.org/abs/2308.00352",
+    "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+    "date": "2023-08-01",
+    "source": "arxiv"
+  },
+  {
+    "n": 6,
+    "id": "2307.07924",
+    "url": "https://arxiv.org/abs/2307.07924",
+    "title": "ChatDev: Communicative Agents for Software Development",
+    "date": "2024-06-05",
+    "source": "arxiv"
+  },
+  {
+    "n": 7,
+    "id": "2305.10601",
+    "url": "https://arxiv.org/abs/2305.10601",
+    "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+    "date": "2023-05-17",
+    "source": "arxiv"
+  },
+  {
+    "n": 8,
+    "id": "2308.09687",
+    "url": "https://arxiv.org/abs/2308.09687",
+    "title": "Graph of Thoughts: Solving Elaborate Problems with Large Language Models",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 9,
+    "id": "2308.03688",
+    "url": "https://arxiv.org/abs/2308.03688",
+    "title": "AgentBench: Evaluating LLMs as Agents",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 10,
+    "id": "2307.13854",
+    "url": "https://arxiv.org/abs/2307.13854",
+    "title": "WebArena: A Realistic Web Environment for Building and Evaluating Autonomous Agents",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 11,
+    "id": "2311.12983",
+    "url": "https://arxiv.org/abs/2311.12983",
+    "title": "GAIA: a benchmark for General AI Assistants",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 12,
+    "id": "2503.16416v2",
+    "url": "https://arxiv.org/abs/2503.16416v2",
+    "title": "A Survey on Evaluation of LLM-based Agents",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 13,
+    "id": "2606.25819",
+    "url": "https://arxiv.org/abs/2606.25819",
+    "title": "Beyond Function Calling: Benchmarking Tool-Using Agents under Tool-Environment Unreliability",
+    "date": "2026-06-24",
+    "source": "arxiv"
+  },
+  {
+    "n": 14,
+    "id": "2410.02644",
+    "url": "https://arxiv.org/abs/2410.02644",
+    "title": "Agent Security Bench (ASB): Formalizing and Benchmarking Attacks and Defenses in LLM-based Agents",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 15,
+    "id": "https://arxiv.org/html/2606.10749v2",
+    "url": "https://arxiv.org/html/2606.10749v2",
+    "title": "Toward Secure LLM Agents: Threat Surfaces, Attacks, Defenses, and Evaluation",
+    "date": "unknown",
+    "source": "web"
+  },
+  {
+    "n": 16,
+    "id": "2609.14631",
+    "url": "https://arxiv.org/abs/2609.14631",
+    "title": "LLM Agent Capabilities Should Follow Task Intent and Context Source",
+    "date": "2026-09-13",
+    "source": "arxiv"
+  },
+  {
+    "n": 17,
+    "id": "2610.10549",
+    "url": "https://huggingface.co/papers/2610.10549",
+    "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
+    "date": "2026-09-24",
+    "source": "hf-daily"
+  },
+  {
+    "n": 18,
+    "id": "2609.34790",
+    "url": "https://arxiv.org/abs/2609.34790",
+    "title": "CoSec: Benchmarking Agent Security in Communities",
+    "date": "2026-09-28",
+    "source": "arxiv"
+  },
+  {
+    "n": 19,
+    "id": "2607.12619",
+    "url": "https://arxiv.org/abs/2607.12619",
+    "title": "Agentic Service-Oriented Computing: A Manifesto for the Next Frontier of Service-Oriented Computing",
+    "date": "2026-07-14",
+    "source": "arxiv"
+  },
+  {
+    "n": 20,
+    "id": "2205.00445",
+    "url": "https://arxiv.org/abs/2205.00445",
+    "title": "MRKL Systems: A modular, neuro-symbolic architecture that combines large language models, external knowledge sources and discrete reasoning",
+    "date": "2022-05-01",
+    "source": "arxiv"
+  },
+  {
+    "n": 21,
+    "id": "2305.17126",
+    "url": "https://arxiv.org/abs/2305.17126",
+    "title": "Large Language Models as Tool Makers",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 22,
+    "id": "2308.10848",
+    "url": "https://arxiv.org/abs/2308.10848",
+    "title": "AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 23,
+    "id": "10.1007/s10462-026-11571-0",
+    "url": "https://link.springer.com/article/10.1007/s10462-026-11571-0",
+    "title": "A comprehensive review of agentic AI evaluation",
+    "date": "2026-04-24",
+    "source": "web"
+  },
+  {
+    "n": 24,
+    "id": "2406.13352",
+    "url": "https://arxiv.org/abs/2406.13352",
+    "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+    "date": "unknown",
+    "source": "arxiv"
+  },
+  {
+    "n": 25,
+    "id": "https://dl.acm.org/doi/epdf/10.1145/3773080",
+    "url": "https://dl.acm.org/doi/epdf/10.1145/3773080",
+    "title": "The Emerged Security and Privacy of LLM Agent: A Survey with Case Studies",
+    "date": "unknown",
+    "source": "web"
+  },
+  {
+    "n": 26,
+    "id": "https://dl.acm.org/doi/10.1145/3716628",
+    "url": "https://dl.acm.org/doi/10.1145/3716628",
+    "title": "AI Agents Under Threat: A Survey of Key Security Challenges and Future Pathways",
+    "date": "2025-02-21",
+    "source": "web"
+  },
+  {
+    "n": 27,
+    "id": "2607.09016",
+    "url": "https://arxiv.org/abs/2607.09016",
+    "title": "SLBench: Evaluating How LLM Agents Follow Logical Relations in Skills",
+    "date": "2026-07-10",
+    "source": "arxiv"
+  }
+]

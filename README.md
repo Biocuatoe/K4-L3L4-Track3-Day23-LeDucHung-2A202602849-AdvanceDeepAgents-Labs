@@ -52,22 +52,34 @@ Lab/
 ├── sandbox.py                CÓ SẴN - không sửa: sandbox Daytona (hoặc Docker), upload, download
 ├── self_check.py             CÓ SẴN - không sửa: tự kiểm tra trước khi nộp (python self_check.py)
 ├── finalize_citations.py     CÓ SẴN - không sửa: script chạy trong sandbox, tự sinh `## References` và đánh số lại trích dẫn
-├── tools.py                  SINH VIÊN CÀI ĐẶT: retry + 5 công cụ nguồn dữ liệu
-├── agents.py                 SINH VIÊN CÀI ĐẶT: prompt, subagent, lead agent
-├── research.py               SINH VIÊN CÀI ĐẶT: script chính
-├── check_citations.py        SINH VIÊN CÀI ĐẶT: kiểm tra trích dẫn, chạy TRONG sandbox
-└── reports/                  báo cáo sinh ra (bạn commit vào repo nộp)
+├── tools.py                  ĐÃ CÀI ĐẶT: retry + 5 công cụ nguồn dữ liệu
+├── agents.py                 ĐÃ CÀI ĐẶT: prompt, subagent, lead agent, giới hạn vòng lặp
+├── research.py               ĐÃ CÀI ĐẶT: script chính
+├── check_citations.py        ĐÃ CÀI ĐẶT: kiểm tra trích dẫn, chạy TRONG sandbox
+├── tests/                    test offline (mock mạng, đồng hồ, LLM): pytest
+└── reports/                  báo cáo sinh ra (5 chủ đề x .md / .sources.json / .meta.json)
 ```
 
-Mỗi tệp "SINH VIÊN CÀI ĐẶT" là **pseudo-code chạy được** (import được): các hàm có docstring mô tả việc cần làm, các `TODO n` đánh số theo `GUIDE.md`, thân hàm đang `raise NotImplementedError`.
+Bốn tệp "ĐÃ CÀI ĐẶT" là phần việc của sinh viên (các `TODO n` trong `GUIDE.md`); `model.py`, `sandbox.py`, `self_check.py`, `finalize_citations.py` giữ nguyên bản gốc.
 
 ## 4. Cài đặt
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate      # Python 3.11+
 pip install -r requirements.txt
+pip install pytest                                       # chỉ để chạy test
 cp .env.example .env                                     # rồi điền khóa CỦA BẠN
 ```
+
+Nhà cung cấp LLM được hỗ trợ bởi các gói đã khai báo trong `requirements.txt`:
+
+| Chế độ | `.env` | Gói |
+|---|---|---|
+| Endpoint tương thích OpenAI (OpenAI, OpenRouter, Groq, Ollama, vLLM...) | `LAB_BASE_URL`, `LAB_MODEL`, `LAB_API_KEY` hoặc `LAB_MODEL=openai:<model>` + `OPENAI_API_KEY` | `langchain-openai` |
+| Google Gemini | `LAB_MODEL=google_genai:<model>` + `GOOGLE_API_KEY` | `langchain-google-genai` |
+| Anthropic | `LAB_MODEL=anthropic:<model>` + `ANTHROPIC_API_KEY` | **chưa có sẵn**: `pip install langchain-anthropic` |
+
+Lưu ý với gói miễn phí của Gemini: hạn mức theo phút/ngày rất thấp (một số model chỉ 5-20 yêu cầu), không đủ cho một lần chạy deep research. Bản nộp được chạy bằng `LAB_MODEL=google_genai:gemini-3.5-flash-lite` (15 yêu cầu/phút ở gói miễn phí tại thời điểm chạy). Tên và hạn mức model thay đổi: hãy tra tài liệu nhà cung cấp.
 
 Bạn cần ba loại khóa (điền vào `.env`, **không bao giờ commit** `.env`):
 
@@ -77,20 +89,32 @@ Bạn cần ba loại khóa (điền vào `.env`, **không bao giờ commit** `.
 | `DAYTONA_API_KEY` | https://app.daytona.io | Kiểm tra gói miễn phí / credit hiện hành. Không có tài khoản hoặc hết credit: đặt `SANDBOX=docker` để chạy sandbox trong container Docker cục bộ (xem `.env.example`). |
 | `EXA_API_KEY` (khuyến nghị) | https://dashboard.exa.ai/api-keys | Có thể chạy không khóa, nhưng bản miễn phí của MCP bị giới hạn tốc độ rất nhanh. |
 
-## 5. Làm bài
+## 5. Chạy
 
-Làm theo thứ tự (chi tiết trong `GUIDE.md`):
-
-1. `check_citations.py`: khởi động nhẹ, thuần Python.
-2. `tools.py`: viết `with_retry` và 5 công cụ. Thử riêng từng công cụ: `python tools.py`.
-3. `agents.py`: viết prompt, subagent và lead agent.
-4. `research.py`: ghép tất cả; chạy một chủ đề:
+Kiểm tra theo thứ tự (rẻ -> đắt):
 
 ```bash
-python research.py "survey about world model"
+python -m pytest tests -q          # test offline: không gọi mạng, không gọi LLM, không tốn token
+python tools.py                    # smoke test 5 công cụ nguồn dữ liệu với dịch vụ thật (cần mạng; EXA_API_KEY nên có)
+python research.py "survey about world model"      # một chủ đề, đầu-cuối (LLM + sandbox + công cụ thật)
 ```
 
-Kết quả nằm ở `reports/survey-about-world-model.md` cùng `.sources.json` và `.meta.json`.
+Chạy đủ 5 chủ đề: `python research.py "<chủ đề>"` cho từng dòng của [`topics.md`](topics.md). Mã thoát: `0` thành công, `1` lần chạy hỏng (không ghi tệp nào vào `reports/`), `2` thiếu chủ đề.
+
+Mỗi chủ đề tạo ba tệp trong `reports/` (tên = `slugify(chủ đề)`):
+
+| Tệp | Nội dung |
+|---|---|
+| `<slug>.md` | Báo cáo; `## References` do `finalize_citations.py` sinh trong sandbox |
+| `<slug>.sources.json` | `[{n, id, url, title, date, source}]`; `source` = công cụ đã trả nguồn: `arxiv`, `hf-daily`, `hf-search`, `web` |
+| `<slug>.meta.json` | `topic`, `model`, `elapsed_s`, `subagent_calls`, `tool_calls`, `tokens`, `n_sources`, `source_families` (`tokens` chỉ tính tin nhắn của lead, không gồm subagent) |
+
+Kiểm tra trích dẫn và tự chấm:
+
+```bash
+python check_citations.py reports/<slug>.md reports/<slug>.sources.json   # phải in OK
+python self_check.py                                                      # 5 báo cáo + meta + trích dẫn + không lộ khóa
+```
 
 ## 6. Chủ đề và nộp bài
 
